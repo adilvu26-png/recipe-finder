@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+html, body {
+  /* Belt-and-braces: nothing should ever force horizontal scroll,
+     on the smallest phone or the widest ultrawide monitor. */
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  @apply bg-char-50 text-char-800 font-body antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+*:focus-visible {
+  outline: 2px solid theme('colors.saffron.500');
+  outline-offset: 2px;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
